@@ -1,0 +1,17 @@
+class Solution:
+    def maxArea(self, heights: List[int]) -> int:
+        i = 0
+        j = len(heights) - 1
+
+        area = 0
+
+        while j >= i:
+            curr_area = min(heights[i],heights[j])*(j-i)
+            if curr_area > area:
+                area = curr_area
+            if heights[i] < heights[j]:
+                i += 1
+            else:
+                j -= 1
+            
+        return area
